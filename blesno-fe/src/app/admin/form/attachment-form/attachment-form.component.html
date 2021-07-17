@@ -1,0 +1,36 @@
+<form>
+	<input id="articleId" name="articleId" [(ngModel)]="attachment.article.id" type="hidden">
+	<div class="field">
+		<label for="name">Nazev:</label>
+		<input id="name" name="name" [(ngModel)]="attachment.name" type="text" pInputText>
+		<span class="error"></span>
+	</div>
+	<div class="field">
+		<label for="category">Kategorie:</label>
+		<p-dropdown id="category" name="categories" [options]="categories" [(ngModel)]="attachment.category"></p-dropdown>
+		<span class="error"></span>
+	</div>
+	<div class="field field-inline">
+		<label for="imageUrl">URL obrazku:</label>
+		<div>
+			<p-button (onClick)="showImageTree($event)" label="Vybrat" styleClass="ui-primary-button"></p-button>
+			<p-overlayPanel #imagesOverlayPanel>
+				<p-tree [value]="images" [(selection)]="selectedImages" (onNodeSelect)="selectImage($event)"
+					selectionMode="checkbox" [propagateSelectionDown]="false" [propagateSelectionUp]="false"></p-tree>
+			</p-overlayPanel>&nbsp;{{ pathToSelectedImage }}
+			<input id="imageUrl" name="imageUrl" [(ngModel)]="attachment.imageUrl" type="hidden">
+		</div>
+		<span class="error"></span>
+	</div>
+	<div class="field">
+		<label for="contentUrl">URL obsahu:</label>
+		 <p-autoComplete name="contentUrl" [(ngModel)]="attachment.contentUrl"
+			[suggestions]="articleIdsSuggestions" (completeMethod)="searchArticles($event)"></p-autoComplete>
+		<span class="error"></span>
+	</div>
+	<div class="button-set">
+		<p-button (onClick)="back()" label="Zpet" styleClass="ui-button-danger"></p-button>
+		<p-button (onClick)="save()" label="Ulozit" styleClass="ui-button-success"></p-button>
+	</div>
+</form>
+<hr>

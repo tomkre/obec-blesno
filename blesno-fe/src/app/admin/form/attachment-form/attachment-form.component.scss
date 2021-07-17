@@ -1,0 +1,11 @@
+:host ::ng-deep {
+	.ui-tree {
+		width: 600px;
+		height: 400px;
+	}
+	p-autocomplete {
+		span, input {
+			width: 100%;
+		}
+	}
+}

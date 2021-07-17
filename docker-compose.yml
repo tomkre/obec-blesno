@@ -1,0 +1,26 @@
+version: "3.5"
+services:
+  be:
+    build: blesno-be
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/blesno
+      SPRING_DATASOURCE_USERNAME: blesno
+      SPRING_DATASOURCE_PASSWORD: blesno2020
+    depends_on:
+      - db
+  db:
+    image: postgres
+    ports:
+      - "6432:5432"
+    environment:
+      POSTGRES_DB: blesno
+      POSTGRES_USER: blesno
+      POSTGRES_PASSWORD: blesno2020
+  fe:
+    build: blesno-fe
+    ports:
+      - "4200:80" # do not change, 4200 is for the time being hard-coded in spring cors configuration
+    depends_on:
+      - be

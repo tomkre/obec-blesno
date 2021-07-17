@@ -1,0 +1,7 @@
+<div class="container" [ngClass]="bgClass">
+    <p-panelMenu class="side-menu" [model]="sideMenu"></p-panelMenu>
+	<article>
+		<h1 class="article-title">{{ title }}</h1>
+		<router-outlet></router-outlet>
+	</article>
+</div>

@@ -1,0 +1,18 @@
+<form (submit)="login()">
+    <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" [class.input-error]="loginFailed" pInputText [(ngModel)]="username">
+    </div>
+    <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" [class.input-error]="loginFailed" pPassword [(ngModel)]="password">
+    </div>
+    <div class="group-validation-messages">
+    	<span *ngIf="loginFailed" class="invalid-credentials">
+    		Uživtelské jméno nebo heslo je nesprávné!
+    	</span>
+    </div>
+    <div class="buttons">
+        <p-button label="Login" class="p-button-primary"></p-button>
+    </div>
+</form>

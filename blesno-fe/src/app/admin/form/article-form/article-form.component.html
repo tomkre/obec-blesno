@@ -1,0 +1,81 @@
+<form *ngIf="article">
+	<div class="field">
+		<label for="name">Nazev:</label>
+		<input id="name" name="name" type="text" pInputText [(ngModel)]="article.title">
+		<span class="error"></span>
+	</div>
+	<div class="field">
+		<label for="category">Kategorie:</label>
+		<p-dropdown id="category" name="category" [options]="categories" [(ngModel)]="article.category"></p-dropdown>
+		<span class="error"></span>
+	</div>
+	<div class="field">
+		<label for="category">Dokumenty:</label>
+        <p-fileUpload name="file" [url]="assetsUploadUrl"
+            mode="basic" [auto]="true" (onUpload)="handleDocumentUpload($event)"></p-fileUpload>
+    </div>
+    <div class="file-list">
+        <p-table class="document-table" [value]="documentReferences">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Název</th>
+                    <th>Odkaz</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-documentReference>
+                <tr>
+                    <td>{{ documentReference.name }}</td>
+                    <td>
+                        <a [href]="documentReference.url">{{ documentReference.url }}</a>
+                    </td>
+                    <td>
+                        <a (click)="deleteDocument(documentReference.name)">Smazat</a>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+	<div class="field-text-area">
+		<label for="content">Obsah:</label>
+        <editor apiKey="zwda18rnz2m6tben0pzu9ap6j6dk53iu4c6c8yigjc7k74m7"
+            [init]="editorConfig" [(ngModel)]="article.content" name="article"></editor>
+		<span class="error"></span>
+	</div>
+	<div class="field-table attachments-table">
+		<label>Prilohy:</label>
+		<p-table [value]="attachments" [lazy]="true" (onLazyLoad)="loadAttachments($event)"
+		[paginator]="true" [rows]="attachmentsPerPage" [totalRecords]="numOfAttachments" [loading]="loadingAttachments"
+		#attachmentsTable>
+			<ng-template pTemplate="header">
+				<tr>
+					<th>Id</th>
+					<th>Nazev</th>
+					<th>
+						<p-button (onClick)="createNewAttachment()" label="Nový"
+							styleClass="ui-primary-button"></p-button>
+					</th>
+				</tr>
+			</ng-template>
+			<ng-template pTemplate="body" let-attachment>
+				<tr>
+					<td>
+						<a [routerLink]="['/admin', 'attachments', attachment.id]">{{ attachment.id }}</a>
+					</td>
+					<td>
+						<a [routerLink]="['/admin', 'attachments', attachment.id]">{{ attachment.name }}</a>
+					</td>
+					<td>
+						<p-button (onClick)="deleteAttachment(attachment.id)" label="Smazat"
+							styleClass="ui-button-danger"></p-button>
+					</td>
+				</tr>
+			</ng-template>
+		</p-table>
+	</div>
+	<div class="button-set">
+		<p-button (onClick)="save()" label="Ulozit" styleClass="ui-button-success"></p-button>
+		<p-button (onClick)="back()" label="Zpet" styleClass="ui-button-danger"></p-button>
+	</div>
+</form>
+

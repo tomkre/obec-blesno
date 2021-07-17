@@ -1,0 +1,9 @@
+@import 'variables';
+
+:host ::ng-deep .ui-menu .ui-menuitem-link {
+	background: $gray-light;
+	border: 1px solid $gray-solid;
+	&:hover {
+		background: $gray-lightest;
+	}
+}

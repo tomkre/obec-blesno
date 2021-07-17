@@ -1,0 +1,12 @@
+h1 {
+	margin: 0 0 .7em 0;
+	padding: .3em;
+	text-align: center;
+	color: white;
+	font-weight: normal;
+}
+.container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-column-gap: 1em;
+}

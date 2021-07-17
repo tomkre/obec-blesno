@@ -1,0 +1,10 @@
+<h2>Konané události</h2>
+<p-carousel [value]="pastEvents" [orientation]="'vertical'" [verticalViewPortHeight]="'575px'"
+	[numVisible]="3" [autoplayInterval]="3000">
+	<ng-template let-pastEvent pTemplate="items">
+		<div class="past-event">
+			<img src="assets/past-events/{{ pastEvent.id }}.jpg">
+			<span>{{ pastEvent.title }}</span>
+		</div>
+	</ng-template>
+</p-carousel>

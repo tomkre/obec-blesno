@@ -1,0 +1,18 @@
+:host ::ng-deep .grid-menu .ui-menu {
+	height: auto;
+	border: none;
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1em;
+	}
+	.ui-menuitem-link {
+		height: 90px;
+		display: grid;
+		place-items: center;
+		font-size: 1.1em;
+		.ui-menuitem-text {
+			text-align: center;
+		}
+	}
+}

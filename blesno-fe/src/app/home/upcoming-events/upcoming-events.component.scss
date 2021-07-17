@@ -1,0 +1,38 @@
+@import 'variables';
+
+:host {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+:host ::ng-deep {
+	.ui-menu {
+		ul {
+			text-transform: uppercase;
+			height: 100%;
+			display: grid;
+			grid-template-rows: 40px repeat(5, auto);
+			.ui-submenu-header {
+				background: $blue;
+			}
+			.ui-menuitem {
+				.ui-menuitem-link:hover, &.highlight .ui-menuitem-link {
+					background: lighten($blue-solid, 15);
+				}
+			}
+			.ui-menuitem-link {
+				background: lighten($blue-solid, 10);
+				height: 100%;
+				display: grid;
+				align-content: center;
+				.ui-menuitem-text {
+					color: white;
+				}
+			}
+		}
+	}
+	.ui-galleria {
+		.ui-galleria-nav-prev, .ui-galleria-nav-next {
+			display: none;
+		}
+	}
+}

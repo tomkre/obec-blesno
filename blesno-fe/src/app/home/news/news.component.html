@@ -1,0 +1,10 @@
+<h2>Zpravodajství</h2>
+<ul>
+	<li *ngFor="let newsItem of news">
+		<div>
+			<h3>{{ newsItem.title }}</h3>&nbsp;<time>({{ newsItem.pubDate | date:'dd.MM.yyyy' }})</time>
+			<p>{{ newsItem.content }}</p>
+			<small><span>Kategorie:</span>&nbsp;<a  href="{{ newsItem.category }}">{{ newsItem.category }}</a></small>
+		</div>
+	</li>
+</ul>

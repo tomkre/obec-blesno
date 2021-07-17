@@ -1,0 +1,60 @@
+@import 'variables';
+
+:host {
+	display: block;
+	background: $blue;
+}
+.content {
+	width: 1200px;
+	height: 300px;
+	margin: 0 auto;
+	padding: 2em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+h3 {
+	color: yellow;
+	text-transform: uppercase;
+	font-size: 1.3em;
+	font-weight: normal;
+}
+address {
+	font-style: normal;
+	display: grid;
+	color: white;
+	line-height: 1.5;
+	.title {
+		color: yellow;
+		font-size: 1.1em;
+	}
+}
+a {
+	text-decoration: underline;
+	&, &:hover {
+		color: white;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+:host ::ng-deep {
+	p-menu .ui-menu {
+		background: initial;
+		border: none;
+		height: auto;
+		.ui-menuitem-link {
+			.ui-menuitem-text {
+				color: white;
+				text-decoration: underline;
+			}
+			&:hover .ui-menuitem-text {
+				color: white;
+				text-decoration: none;
+			}
+			.ui-menuitem-icon {
+				color: yellow;
+			}
+		} 
+		
+	}
+}

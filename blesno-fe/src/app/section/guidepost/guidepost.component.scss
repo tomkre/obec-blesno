@@ -1,0 +1,11 @@
+@import 'variables';
+
+:host ::ng-deep {
+	.ui-menu .ui-menuitem-link {
+		background: $blue-light;
+		border: 1px solid $blue-solid;
+		&:hover {
+			background: $blue-lightest;
+		}
+	}
+}

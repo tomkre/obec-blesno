@@ -1,0 +1,45 @@
+@import 'variables';
+
+:host {
+	background: white !important;
+	text-align: center;
+	h2 {
+		background: $blue;
+		color: white;
+		font-size: 1em;
+		margin: 0;
+		padding: .5em;
+		text-transform: uppercase;
+	}
+	.past-event {
+		display: grid;
+		place-content: center;
+		background: #E6F1FA;
+		height: 180px;
+		border: 1px solid $gray-primeng;
+		border-radius: 3px;
+		img {
+			width: 270px;
+			height: 140px;
+			margin-bottom: .5em;
+			border: 3px solid white;
+			outline: 3px solid $gray-primeng;
+		}
+		span {
+			display: block;
+			color: $gray-font;
+		}
+	}
+}
+:host ::ng-deep {
+	.ui-carousel-content {
+		padding: 0;
+	}
+	.ui-carousel-prev, .ui-carousel-next,
+	.ui-carousel-dots-container {
+		display: none;
+	}
+	.ui-carousel-items-container .ui-carousel-item {
+		overflow: hidden;
+	}
+}

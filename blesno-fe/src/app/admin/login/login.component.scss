@@ -1,0 +1,18 @@
+.field {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1em;
+}
+.buttons {
+    text-align: center;
+}
+.group-validation-messages {
+	text-align: center;
+	height: 30px;
+	.invalid-credentials {
+		color: red;
+	}
+}
+.input-error {
+	border: 1px solid red;
+}

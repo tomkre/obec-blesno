@@ -1,0 +1,32 @@
+<div class="p-field ui-fluid">
+    <label for="category">Kategorie:</label>
+    <p-dropdown id="category" [options]="categories" (onChange)="handleCategoryChange($event)"></p-dropdown>
+</div>
+
+<p-table [value]="articles" [lazy]="true" (onLazyLoad)="loadArticles($event)"
+	[paginator]="true" [rows]="10" [totalRecords]="numOfArticles" [loading]="loading" #table>
+	<ng-template pTemplate="header">
+		<tr>
+			<th>Id</th>
+			<th>Nazev</th>
+			<th></th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-article>
+		<tr>
+			<td>
+				<a [routerLink]="article.id">{{ article.id }}</a>
+			</td>
+			<td>
+				<a [routerLink]="article.id">{{ article.title }}</a>
+			</td>
+			<td>
+				<p-button (onClick)="deleteArticle(article.id)" label="Smazat" styleClass="ui-button-danger"></p-button>
+			</td>
+		</tr>
+	</ng-template>
+</p-table>
+
+<div class="toolbar">
+	<p-button (onClick)="createNew()" label="Nový" styleClass="ui-button-success"></p-button>
+</div>

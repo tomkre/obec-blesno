@@ -1,0 +1,30 @@
+<div *ngIf="article" [innerHTML]="article.content | noSanitize" class="article-content"></div>
+<br>
+<p-table *ngIf="showAttachmentsTable" [value]="attachments" [lazy]="true" (onLazyLoad)="loadAttachments($event)"
+	[paginator]="true" [rows]="10" [totalRecords]="numOfAttachments" [loading]="false">
+	<ng-template pTemplate="header">
+		<tr>
+			<th>Změněno</th>
+			<th>Název a anotace</th>
+			<th>Zodpovídá</th>
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-attachment>
+		<tr>
+			<td>{{ attachment.pubDate | date:'d. M. yyyy' }}</td>
+			<td>
+				<ng-container *ngIf="attachment.imageUrl">
+					<img [src]="getAssetUrl(attachment.imageUrl)" [alt]="attachment.id">&nbsp;
+				</ng-container>
+				<ng-container *ngIf="isAttachmentFile(attachment.contentUrl); else linkToArticle">
+					<a [href]="getAssetUrl(attachment.contentUrl)">{{ attachment.name }}</a>
+					&nbsp;[{{ getFileType(attachment.contentUrl) }}, {{ attachment.size | fileSize }}]
+				</ng-container>
+				<ng-template #linkToArticle>
+					<a [routerLink]="attachment.contentUrl">{{ attachment.name }}</a>
+				</ng-template>
+			</td>
+			<td>{{ attachment.createdBy }}</td>
+		</tr>
+	</ng-template>
+</p-table>

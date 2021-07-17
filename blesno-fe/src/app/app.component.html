@@ -1,0 +1,17 @@
+<div id="container">
+	<header>
+		<a href="/">
+			<img src="assets/header.png">
+		</a>
+	</header>
+	<main>
+		<div id="gallery">
+			<p-galleria [images]="images" [showCaption]="false" [showFilmstrip]="false" [panelHeight]="300" [panelWidth]="1140"></p-galleria>
+		</div>
+		<nav>
+			<p-tabMenu [model]="links"></p-tabMenu>
+		</nav>
+		<router-outlet></router-outlet>
+	</main>
+</div>
+<app-footer></app-footer>

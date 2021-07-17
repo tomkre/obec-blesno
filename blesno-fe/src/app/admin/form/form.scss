@@ -1,0 +1,48 @@
+@import 'variables';
+
+form {
+	border: 1px solid $gray-light;
+	border-radius: .5em;
+	padding: 1em;
+}
+
+.field {
+	display: grid;
+	grid-template-columns: 2fr 6fr 4fr;
+	margin-bottom: 1em;
+}
+.field-inline {
+	grid-template-columns: 2fr 10fr;
+}
+.field-text-area, .field-table {
+	display: grid;
+    grid-row-gap: .5em;
+    margin-top: 1em;
+}
+.button-set {
+	display: grid;
+	grid-template-columns: repeat(2, 100px);
+	justify-content: center;
+	margin-top: 1em;
+}
+
+.document-table {
+    th:first-child {
+        width: 200px;
+    }
+    th:last-child {
+        width: 100px;
+    }
+    td:last-child {
+        text-align: center;
+    }
+}
+
+:host ::ng-deep {
+	.ui-dropdown {
+		width: 100%;
+	}
+	.ui-editor-content {
+		min-height: 400px;
+	}
+}

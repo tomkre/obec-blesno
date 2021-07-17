@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
+
+body {
+	background-color: #f2eeed;
+	background-image: url(assets/background.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin: 0;
+}
+body, #container .ui-widget {
+	font-family: 'Exo 2', sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+

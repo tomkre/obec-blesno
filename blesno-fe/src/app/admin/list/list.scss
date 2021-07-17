@@ -1,0 +1,10 @@
+.toolbar {
+	padding: 1em;
+	display: flex;
+	flex-direction: row-reverse;
+}
+:host ::ng-deep {
+	td a {
+		display: block;
+	}
+}

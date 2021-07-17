@@ -1,0 +1,7 @@
+@import 'variables';
+
+:host ::ng-deep {
+	/*.side-menu .ui-menuitem .ui-menuitem-link,*/ .article-title {
+		background: $blue;
+	}
+}

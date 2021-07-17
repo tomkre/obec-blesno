@@ -1,0 +1,21 @@
+:host ::ng-deep {
+    .article-content {
+        > p {
+            margin: .5em;
+        }
+        img {
+            margin: 0 .5em;
+        }
+    }
+	table tr {
+		th:first-child {
+			width: 15%;
+		}
+		th:last-child {
+			width: 20%;
+		}
+		td:last-child {
+			text-align: center;
+		}
+	}
+}
